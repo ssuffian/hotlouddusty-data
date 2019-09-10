@@ -14,7 +14,8 @@ combine_data.py
 ```
 
 
-Contributors:
+Contributors
+------------
 
-Stephen Suffian
-Chris Ballinger
+- Stephen Suffian
+- Chris Ballinger
