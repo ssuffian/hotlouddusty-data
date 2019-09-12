@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+body {
+  background-color: #F0F0F0
+}
+
+.area {
+  fill: steelblue;
+  clip-path: url(#clip);
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+
+.dot {
+  fill: black;
+}
+
+.zoom {
+  cursor: move;
+  fill: none;
+  pointer-events: all;
+}
+
+</style>
+<svg id="pm25" width="500" height="500"></svg>
+<svg id="pm10" width="500" height="500"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="graph.js"></script>
+<script>
+  makeGraph("bm2019pm", "pm2.5", "pm25")
+  makeGraph("bm2019pm", "pm10", "pm10")
+</script>

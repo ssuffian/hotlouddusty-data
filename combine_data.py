@@ -7,7 +7,7 @@ data_dir = 'data'
 
 gps_path = os.path.join(data_dir, 'gps/')
 dust_path = os.path.join(data_dir, 'dust/dusty.csv')
-out_path = os.path.join(data_dir, 'bm2019_pm_data.csv')
+out_path = os.path.join(data_dir, 'bm2019pm.csv')
 
 def get_gps_dataframe(gps_path):
     locs = []
