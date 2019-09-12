@@ -23,8 +23,8 @@ combine_data.py
 Contributors
 ------------
 
-- Stephen Suffian
-- Chris Ballinger
+- [Stephen Suffian](https://github.com/ssuffian)
+- [Chris Ballinger](https://github.com/chrisballinger)
 
 This code is derived from
 -------------------------
