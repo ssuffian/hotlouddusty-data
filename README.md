@@ -1,6 +1,6 @@
 ## Visualizations 
 
-- [Time Series Plot](https://ssuffian.github.io/hotlouddusty-data/timeseries.html)
+- [Zoomable/Brushable Time Series Plot](https://ssuffian.github.io/hotlouddusty-data/timeseries.html)
 - [Jupyter Notebook](https://nbviewer.jupyter.org/github/ssuffian/hotlouddusty-data/blob/master/ipynb/initial_analysis.ipynb)
 
 
