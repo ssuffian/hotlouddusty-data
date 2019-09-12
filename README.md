@@ -1,4 +1,10 @@
-# hotlouddusty-data
+## Visualizations 
+
+- [Time Series Plot](https://ssuffian.github.io/hotlouddusty-data/timeseries.html)
+- [Jupyter Notebook](https://nbviewer.jupyter.org/github/ssuffian/hotlouddusty-data/blob/master/ipynb/initial_analysis.ipynb)
+
+
+## Description
 
 This repository contains scripts for analyzing particular matter data collected at Burning Man in 2019 using code from [this repository](https://github.com/ssuffian/hotlouddusty), which was installed on a Raspberry Pi Zero connected to a RTC and an SDS-011 PM2.5/10 sensor. 
 
