@@ -61,3 +61,4 @@ To Do
 -----
 - Link to wind data from Black Rock Airport.
 - Link to photos for visual dust confirmation.
+- Fix timezone on map.
