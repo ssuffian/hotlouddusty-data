@@ -13,12 +13,23 @@ This repository contains scripts for analyzing particular matter data collected 
 data
 ├────dust
 │    └───dusty.csv
+├────weather
+│    └───gerlack_weather.csv
 ├────gps
 │    └───*.gpx
 └────bm2019_pm_data.csv
 README.md
 combine_data.py
+get_weather.py
 ```
+
+## Weather Data
+
+Fetching Weather data requires a weather underground API key. You can sign up for one if you have a weather station, then use `get_weather.py` to get weather data. You will need to load the api key as an environment variable like so (if your api key was 1234567890):
+
+        export WEATHER_COM_API_KEY=1234567890
+
+However the data from Gerlach for Burning Man 2019 has already been fetched and is in `data/weather/gerlach_weather.csv`.
 
 ## Map Timeline
 
