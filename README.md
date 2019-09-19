@@ -22,12 +22,7 @@ combine_data.py
 
 ## Map Timeline
 
-This visualization is derived (with minimal edits) from Leaflet.Timeline's [Earthquake](http://skeate.github.io/Leaflet.timeline/earthquakes.html) example. It requires that the air quality data (`data/dust/dusty.csv`) and GPS data (`data/gps/*.gpx`) has been merged and subsequently converted to geojson format and stored in the same directory as the leaflet map script (`web/map/`) in a file called `web/map/data.geojsonp`.
-
-        python combine_data.py
-        python make_geojson.py
-
-Any web server can be used to open `map/web/bm2019pm.html` to see a map timeline of the data.
+This visualization is derived (with minimal edits) from Leaflet.Timeline's [Earthquake](http://skeate.github.io/Leaflet.timeline/earthquakes.html) example. It requires that the air quality data (`data/dust/dusty.csv`) and GPS data (`data/gps/*.gpx`) has been merged and subsequently converted to geojson format and stored in the `data` directory when running the `python combine_data.py` command.
 
 Contributors
 ------------
