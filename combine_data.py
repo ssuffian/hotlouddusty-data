@@ -1,13 +1,16 @@
 #!/usr/bin/env python
-import pandas as pd
-import os
 from bs4 import BeautifulSoup
+from datetime import datetime
+import json
+import os
+import pandas as pd
 
 data_dir = 'data'
 
 gps_path = os.path.join(data_dir, 'gps/')
 dust_path = os.path.join(data_dir, 'dust/dusty.csv')
-out_path = os.path.join(data_dir, 'bm2019pm.csv')
+out_path_csv = os.path.join(data_dir, 'bm2019pm.csv')
+out_path_geojsonp = os.path.join(data_dir, 'bm2019pm.geojsonp')
 
 def get_gps_dataframe(gps_path):
     locs = []
@@ -33,6 +36,40 @@ def get_dust_dataframe(dust_path):
     return df
 
 
+def create_geojson_feature(row):
+    time = row['datetime']
+    lat = row['lat']
+    lon = row['lon']
+    pm25_value = round(float(row['pm2.5']), 1)
+    pm10_value = round(float(row['pm10']), 1)
+    data_type = "air_quality"
+    text = '{}<br>PM2.5: {}<br>PM10: {}'.format(time.isoformat(), pm25_value, pm10_value)
+
+    def _get_epoch_time_ms(this_time):
+        return (this_time - datetime(1970,1,1,0,0,0)).total_seconds() * 1000.0
+
+    return {"type":"Feature",
+            "properties":
+             {
+                  "pm25": pm25_value,
+                  "time": _get_epoch_time_ms(time),
+                  "text": text
+             },
+             "geometry":{
+                 "type":"Point","coordinates":[lon, lat, 1]
+             },
+        }
+
+def get_geojson_from_dataframe(df):
+    # Generate geojson
+    df['datetime'] = df.index
+    features = [create_geojson_feature(row) for index, row in df.iterrows()]
+    geojson = {
+        "type":"featurecollection","metadata": {},
+        "features": features
+    }
+    return 'eqfeed_callback({})'.format(json.dumps(geojson))
+
 if __name__ == '__main__':
     # Resample so that join works well
     df_gps = get_gps_dataframe(gps_path).resample('60S').mean()
@@ -40,4 +77,9 @@ if __name__ == '__main__':
     df = df_gps.join(df_dust)
     # Slice for BM 2019 (remove test values)
     df = df['2019-08-23':'2019-09-02'].dropna()
-    df.to_csv(out_path, index_label='datetime')
+    df.to_csv(out_path_csv, index_label='datetime')
+    geojson = get_geojson_from_dataframe(df)
+
+    with open(out_path_geojsonp, 'w') as outfile:
+        outfile.write(geojson)
+
