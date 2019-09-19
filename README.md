@@ -52,7 +52,6 @@ Contributors
 
 This work is derived from
 -------------------------
-- [GeoJson Time Series](https://github.com/skeate/Leaflet.timeline)
 - [d3 Brush and Zoom](https://bl.ocks.org/mbostock/34f08d5e11952a80609169b7917d4172)
 - [Leaflet Timeline 1.2.1](https://github.com/skeate/Leaflet.timeline)
 - [Leaflet (v1.2.0)](https://github.com/Leaflet/Leaflet)
