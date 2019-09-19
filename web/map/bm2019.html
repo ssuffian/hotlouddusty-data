@@ -1,0 +1,136 @@
+<html>
+  <head>
+    <title>Leaflet.timeline</title>
+    <script src="leaflet-src.js"></script>
+    <script src="leaflet.timeline.js"></script>
+
+    <link href="leaflet.css" rel="stylesheet">
+
+    <style>
+      @import url(http://fonts.googleapis.com/css?family=Open+Sans); 
+      html, body{
+        margin: 0;
+        padding: 0;
+        font-family: "Open Sans", sans-serif;
+      }
+      #info{
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 20vw;
+        padding: 1em;
+      }
+      #map{
+        position: fixed;
+        top: 0;
+        left: 20vw;
+        bottom: 0;
+        right: 0;
+      }
+      .leaflet-bottom.leaflet-left{
+        width: 100%;
+      }
+      .leaflet-control-container .leaflet-timeline-controls{
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="info">
+      <h1>Burning Man 2019 Air Quality</h1>
+      <h2>Data by the hour</h2>
+      <ul id="displayed-list"></ul>
+    </div>
+    <div id="map"></div>
+
+    <script>
+      var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+      var osmAttrib = '&copy; <a href="http://openstreetmap.org/copyright">' +
+        'OpenStreetMap</a> contributors';
+      var latCenter = 40.786630
+      var lonCenter = -119.206056
+      var osm = L.tileLayer(osmUrl, {
+        maxZoom: 30,
+        attribution: osmAttrib,
+        noWrap: true
+      });
+      var map = L.map('map', {
+        layers: [osm],
+        center: new L.LatLng(latCenter, lonCenter),
+        zoom: 14,
+        maxBounds: [[90,-180], [-90, 180]]
+      });
+
+      function updateList(timeline){
+        var displayed = timeline.getLayers();
+        var list = document.getElementById('displayed-list');
+        list.innerHTML = "";
+        displayed.forEach(function(reading){
+          var li = document.createElement('li');
+          li.innerHTML = reading.feature.properties.text;
+          list.appendChild(li);
+        });
+      }
+
+      var numMins = 60
+      var intervalLength = numMins * 60000
+
+
+      function eqfeed_callback(data){
+        var getInterval = function(reading) {
+          return {
+            start: reading.properties.time - (intervalLength/2),
+            end:   reading.properties.time + (intervalLength/2)        
+          };
+        };
+        var timelineControl = L.timelineSliderControl({
+          formatOutput: function(date) {
+            return new Date(date).toString();
+          },
+          duration: 80000,
+        });
+
+        function color_from_value(num) {
+          if (num < 12.0) {
+           return "green"
+          }
+          else if (num < 35.4) {
+            return "yellow"
+          }
+          else if (num < 55.4) {
+            return "orange"
+          }
+          else if (num<150.4) {
+            return "red"
+          }
+          else if(num < 250.4) {
+            return "pink"
+          }
+          else {
+            return "purple"
+          }
+        };
+        var timeline = L.timeline(data, {
+          getInterval: getInterval,
+          pointToLayer: function(data, latlng){
+            return L.circleMarker(latlng, {
+              radius: 10,
+              color: color_from_value(data.properties.pm25),
+              fillColor: color_from_value(data.properties.pm25)
+            }).bindPopup(data.properties.text);
+          }
+        });
+        timelineControl.addTo(map);
+        timelineControl.addTimelines(timeline);
+        timeline.addTo(map);
+        timeline.on('change', function(e){updateList(e.target)});
+        updateList(timeline);
+      }
+    </script>
+    <script src="data.geojsonp"></script>
+  </body>
+</html>

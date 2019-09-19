@@ -1,6 +1,7 @@
 ## Visualizations 
 
-- [Zoomable/Brushable Time Series Plot](https://ssuffian.github.io/hotlouddusty-data/timeseries.html)
+- [Zoomable/Brushable Time Series Plot](https://ssuffian.github.io/hotlouddusty-data/web/dist/timeseries.html)
+- [Map Timeline](https://ssuffian.github.io/hotlouddusty-data/web/dist/map-timeline.html)
 - [Jupyter Notebook](https://nbviewer.jupyter.org/github/ssuffian/hotlouddusty-data/blob/master/ipynb/initial_analysis.ipynb)
 
 
@@ -19,6 +20,14 @@ README.md
 combine_data.py
 ```
 
+## Map Timeline
+
+This visualization is derived (with minimal edits) from Leaflet.Timeline's [Earthquake](http://skeate.github.io/Leaflet.timeline/earthquakes.html) example. It requires that the air quality data (`data/dust/dusty.csv`) and GPS data (`data/gps/*.gpx`) has been merged and subsequently converted to geojson format and stored in the same directory as the leaflet map script (`web/map/`) in a file called `web/map/data.geojsonp`.
+
+        python combine_data.py
+        python make_geojson.py
+
+Any web server can be used to open `map/web/bm2019pm.html` to see a map timeline of the data.
 
 Contributors
 ------------
@@ -26,7 +35,9 @@ Contributors
 - [Stephen Suffian](https://github.com/ssuffian)
 - [Chris Ballinger](https://github.com/chrisballinger)
 
-This code is derived from
+This work is derived from
 -------------------------
 - [GeoJson Time Series](https://github.com/skeate/Leaflet.timeline)
 - [d3 Brush and Zoom](https://bl.ocks.org/mbostock/34f08d5e11952a80609169b7917d4172)
+- [Leaflet Timeline 1.2.1]: https://github.com/skeate/Leaflet.timeline
+- [Leaflet 1.2.0]: https://github.com/Leaflet/Leaflet
