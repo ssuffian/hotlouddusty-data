@@ -24,6 +24,15 @@ combine_data.py
 
 This visualization is derived (with minimal edits) from Leaflet.Timeline's [Earthquake](http://skeate.github.io/Leaflet.timeline/earthquakes.html) example. It requires that the air quality data (`data/dust/dusty.csv`) and GPS data (`data/gps/*.gpx`) has been merged and subsequently converted to geojson format and stored in the `data` directory when running the `python combine_data.py` command.
 
+The `leaflet.timeline.js` file was compiled using [this repo](https://github.com/skeate/Leaflet.timeline), with an updated package.json that can be found in `leaflet/leaflet-timeline-package.json`.
+
+        git clone https://github.com/skeate/Leaflet.timeline.git
+        cp leaflet/leaflet-timeline-package.json Leaflet.timeline/package.json 
+        cd Leaflet.timeline
+        npm install
+        npm run build
+        cp dist/leaflet.timeline.js ../leaflet/
+
 Contributors
 ------------
 
