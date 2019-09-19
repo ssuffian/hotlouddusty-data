@@ -1,7 +1,7 @@
 ## Visualizations 
 
-- [Zoomable/Brushable Time Series Plot](https://ssuffian.github.io/hotlouddusty-data/web/dist/timeseries.html)
-- [Map Timeline](https://ssuffian.github.io/hotlouddusty-data/web/dist/map-timeline.html)
+- [Zoomable/Brushable Time Series Plot](https://ssuffian.github.io/hotlouddusty-data/web/timeline/timeseries.html)
+- [Map Timeline](https://ssuffian.github.io/hotlouddusty-data/web/map/bm2019.html)
 - [Jupyter Notebook](https://nbviewer.jupyter.org/github/ssuffian/hotlouddusty-data/blob/master/ipynb/initial_analysis.ipynb)
 
 
