@@ -71,7 +71,9 @@
         list.innerHTML = "";
         displayed.forEach(function(reading){
           var li = document.createElement('li');
-          li.innerHTML = reading.feature.properties.text;
+          photo_filename = reading.feature.properties.iso_time
+          image_html = '<img width=100px height=100px src="data/photos/'+ photo_filename +'.jpg">';
+          li.innerHTML = reading.feature.properties.text //+ image_html ; 
           list.appendChild(li);
         });
       }
@@ -89,7 +91,9 @@
         };
         var timelineControl = L.timelineSliderControl({
           formatOutput: function(date) {
-            return new Date(date).toString();
+          var options = {  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'America/Los_Angeles' };
+
+            return new Date(date).toLocaleTimeString("en-US", options);
           },
           duration: 80000,
         });

@@ -4,6 +4,7 @@ from datetime import datetime
 import json
 import os
 import pandas as pd
+import pytz
 
 data_dir = 'data'
 
@@ -46,6 +47,11 @@ def create_geojson_feature(row):
     text = '{}<br>PM2.5: {}<br>PM10: {}'.format(time.isoformat(), pm25_value, pm10_value)
 
     def _get_epoch_time_ms(this_time):
+        # Convert to Burning Man timezone then strip timezone info.
+        this_time = (
+            this_time.tz_localize('America/Los_Angeles').\
+            astimezone(pytz.UTC).replace(tzinfo=None)
+        )
         return (this_time - datetime(1970,1,1,0,0,0)).total_seconds() * 1000.0
 
     return {"type":"Feature",
@@ -53,7 +59,8 @@ def create_geojson_feature(row):
              {
                   "pm25": pm25_value,
                   "time": _get_epoch_time_ms(time),
-                  "text": text
+                  "iso_time": time.isoformat(),
+                  "text": text,
              },
              "geometry":{
                  "type":"Point","coordinates":[lon, lat, 1]
