@@ -46,8 +46,8 @@ The `leaflet.timeline.js` file was compiled using [this repo](https://github.com
         
 Photos
 ------
-![alt text](assets/sensor_photo1.jpg "Sensor in the bike")
-![alt text](assets/sensor_photo2.jpg "Sensor")
+<img src="assets/sensor_photo1.jpg" alt="Sensor in the bike" width="50"/>
+<img src="assets/sensor_photo2.jpg" alt="Sensor in Box" width="50"/>
 
 Contributors
 ------------
