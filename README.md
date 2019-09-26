@@ -48,6 +48,32 @@ Photos
 ------
 <img src="assets/sensor_photo1.jpg" alt="Sensor in the bike" width="400"/>      <img src="assets/sensor_photo2.jpg" alt="Sensor in Box" width="400"/>
 
+Information around Air Quality
+------------------------------
+
+[World Health Organization Air Quality Guidelines](https://www.who.int/news-room/fact-sheets/detail/ambient-(outdoor)-air-quality-and-health)
+
+### Fine Particulate Matter (PM2.5)
+
+- 10 μg/m3 annual mean
+- 25 μg/m3 24-hour mean
+
+### Coarse Particulate Matter (PM10)
+
+- 20 μg/m3 annual mean
+- 50 μg/m3 24-hour mean
+
+[EPA Air Quality Guidelines](https://www.epa.gov/sites/production/files/2016-04/documents/overview_factsheet.pdf)
+
+### Fine Particulate Matter (PM2.5)
+
+- 12 μg/m3 annual mean
+- 35 μg/m3 24-hour mean
+
+### Coarse Particulate Matter (PM10)
+
+- 150 μg/m3 24-hour mean
+
 Contributors
 ------------
 
