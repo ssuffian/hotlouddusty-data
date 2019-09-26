@@ -1,7 +1,7 @@
 ## Visualizations 
 
-- [Zoomable/Brushable Time Series Plot](https://ssuffian.github.io/hotlouddusty-data/timeseries.html)
 - [Map Timeline](https://ssuffian.github.io/hotlouddusty-data/map.html)
+- [Zoomable/Brushable Time Series Plot](https://ssuffian.github.io/hotlouddusty-data/timeseries.html)
 - [Jupyter Notebook](https://nbviewer.jupyter.org/github/ssuffian/hotlouddusty-data/blob/master/ipynb/initial_analysis.ipynb)
 
 
@@ -43,6 +43,11 @@ The `leaflet.timeline.js` file was compiled using [this repo](https://github.com
         npm install
         npm run build
         cp dist/leaflet.timeline.js ../leaflet/
+        
+Photos
+------
+![alt text](assets/sensor_photo1.jpg "Sensor in the bike")
+![alt text](assets/sensor_photo2.jpg "Sensor")
 
 Contributors
 ------------
