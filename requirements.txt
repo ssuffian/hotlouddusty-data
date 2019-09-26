@@ -1,1 +1,2 @@
 pandas==0.25.1
+exifread==2.1.2
