@@ -18,15 +18,40 @@
         top: 0;
         left: 0;
         bottom: 0;
-        width: 20vw;
+        width: 40vw;
         padding: 1em;
       }
       #map{
         position: fixed;
         top: 0;
-        left: 20vw;
+        left: 40vw;
         bottom: 0;
         right: 0;
+      }
+      .box {
+        float: left;
+        width: 15px;
+        height: 15px;
+        margin: 0px 5px 0px 0px;
+        border: 2px solid rgba(0, 0, 0, .2);
+       }
+      .green {
+        background-color: green
+      }
+      .yellow {
+        background-color: yellow
+      }
+      .orange {
+        background-color: orange
+      }
+      .red {
+        background-color: red
+      }
+      .pink {
+        background-color: pink
+      }
+      .purple {
+        background-color: purple
       }
       .leaflet-bottom.leaflet-left{
         width: 100%;
@@ -42,6 +67,16 @@
   <body>
     <div id="info">
       <h1>Burning Man 2019 Air Quality</h1>
+      <h2>Color Legend (based off of PM2.5)</h2>
+      <ul>
+        <li><div class="green box"></div><span>< 12.0 μg/m3</span></li>
+        <li><div class="yellow box"></div><span>< 35.4 μg/m3</span></li>
+        <li><div class="orange box"></div><span>< 55.4 μg/m3</span></li>
+        <li><div class="red box"></div><span>< 150.4 μg/m3</span></li>
+        <li><div class="pink box"></div><span>< 250.4 μg/m3</span></li>
+        <li><div class="purple box"></div><span>> 250.4 μg/m3</span></li>
+      </ul>
+      <p> While these are instantaneous values, the colors are based off of 24-hour warning ranges described <a href="https://blissair.com/what-is-pm-2-5.htm">here</a>.</p>
       <h2>Data by the hour</h2>
       <ul id="displayed-list"></ul>
     </div>
